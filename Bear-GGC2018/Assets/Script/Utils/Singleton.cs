@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+// ceci est un commentaire inutilie
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
