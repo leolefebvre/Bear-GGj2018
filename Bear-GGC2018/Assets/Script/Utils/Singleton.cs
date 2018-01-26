@@ -28,7 +28,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             _instance = this as T;
         }
         else
-        {
+        {//youbeach 
             if (!Application.isEditor)
             {
                 Debug.LogError(this + " You have two singletons of the same type in the hierarchy");
