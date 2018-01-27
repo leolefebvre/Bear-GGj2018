@@ -16,6 +16,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [SerializeField] private NonPlayerCharacter _currentNpcNear = null;
 
     private QuestManager _questManager = null;
+    private Rigidbody _characterRigidody;
+
+    private RigidbodyConstraints _defaultRigidbodyConstraint;
 
     #region properties
 
@@ -58,6 +61,17 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
                 _questManager = QuestManager.Instance;
             }
             return _questManager;
+        }
+    }
+    public Rigidbody characterRigidbody
+    {
+        get
+        {
+            if(_characterRigidody == null)
+            {
+                _characterRigidody = GetComponent<Rigidbody>();
+            }
+            return _characterRigidody;
         }
     }
 
@@ -123,10 +137,12 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(isLookingAtClue)
         {
             currentClueDisplayer.HideClue();
+            UnlockCharacter();
         }
         else
         {
             currentClueDisplayer.DisplayClue();
+            LockCharacter();
         }
 
         isLookingAtClue = !isLookingAtClue;
@@ -160,6 +176,28 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
     }
 
+    void LockCharacter()
+    {
+        if(isCharacterLocked) // if character is already locked
+        {
+            return;
+        }
+
+        _defaultRigidbodyConstraint = characterRigidbody.constraints;
+
+        characterRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    void UnlockCharacter()
+    {
+        if (!isCharacterLocked) // if character is already unlocked
+        {
+            return;
+        }
+
+        characterRigidbody.constraints = _defaultRigidbodyConstraint;
+    }
+
     void FixRotationBug()
     {
         if (transform.localRotation.x != 0f || transform.localRotation.z != 0f)
@@ -167,6 +205,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             transform.localEulerAngles = new Vector3(0f, transform.localRotation.y, 0f);
         }
     }
+
+
+    #region trigger methods
 
     void OnTriggerEnter(Collider other)
     {
@@ -187,4 +228,6 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             }
         }
     }
+
+    #endregion
 }
