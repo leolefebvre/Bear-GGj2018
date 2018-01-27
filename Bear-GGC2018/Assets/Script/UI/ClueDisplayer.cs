@@ -35,4 +35,9 @@ public class ClueDisplayer : Singleton<ClueDisplayer>
         Debug.Log("Hidding clue");
         displayedImage.enabled = false;
     }
+
+    public void ChangeClueImage(Sprite newClueSprite)
+    {
+        displayedImage.sprite = newClueSprite;
+    }
 }

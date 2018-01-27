@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 23998689400722806}
   - component: {fileID: 54885339298377874}
   - component: {fileID: 114522008650838658}
+  - component: {fileID: 65315268761433454}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,6 +170,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &65315268761433454
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1560969203339938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1.6586227}
+  m_Center: {x: 0, y: 0, z: 0.32931137}
 --- !u!81 &81535221447294034
 AudioListener:
   m_ObjectHideFlags: 1
@@ -190,6 +203,9 @@ MonoBehaviour:
   speed: 10
   _translation: 0
   _strafe: 0
+  _isLookingAtClue: 0
+  _isTalking: 0
+  _clueDisplayer: {fileID: 0}
 --- !u!114 &114674875020305902
 MonoBehaviour:
   m_ObjectHideFlags: 1
