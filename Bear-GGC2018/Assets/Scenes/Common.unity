@@ -898,12 +898,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questList:
-  - questClue: {fileID: 21300000, guid: 71c842404f6000940be0b59ed7b18103, type: 3}
+  - questClue: {fileID: 21300000, guid: aabda559dc46e2e4fa63a10d799896b4, type: 3}
     questDestinator: 1
-  - questClue: {fileID: 21300000, guid: a56e08e095b34114db3319bde991b026, type: 3}
+  - questClue: {fileID: 21300000, guid: af2f373fb00a1194ca42cf293c24ce4f, type: 3}
     questDestinator: 2
-  - questClue: {fileID: 21300000, guid: 47ae0e8d35ddb9247a18583b8badd5ad, type: 3}
+  - questClue: {fileID: 21300000, guid: 674aa2646213fef4a915c935ca7bb470, type: 3}
     questDestinator: 3
+  - questClue: {fileID: 21300000, guid: 4a24967d72f06304da6d1eed0724f95e, type: 3}
+    questDestinator: 4
+  - questClue: {fileID: 21300000, guid: 2e84360c11d1e9748980281c827f3f9e, type: 3}
+    questDestinator: 5
+  - questClue: {fileID: 21300000, guid: 0813e7d3ee27bb1478a250a416fef830, type: 3}
+    questDestinator: 6
   - questClue: {fileID: 21300000, guid: 01cc9f6e59e91754bbc03faf0784d3a3, type: 3}
     questDestinator: 7
   nextObjectiveDisplayer: {fileID: 1824748922}
