@@ -631,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527121837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -906,7 +906,8 @@ MonoBehaviour:
     questDestinator: 3
   - questClue: {fileID: 21300000, guid: 01cc9f6e59e91754bbc03faf0784d3a3, type: 3}
     questDestinator: 7
-  nextObjectiveDisplayer: {fileID: 0}
+  nextObjectiveDisplayer: {fileID: 1824748922}
+  timeBeforeDisplayNextObjectiveFeedback: 5
 --- !u!1 &1002570719
 GameObject:
   m_ObjectHideFlags: 0
