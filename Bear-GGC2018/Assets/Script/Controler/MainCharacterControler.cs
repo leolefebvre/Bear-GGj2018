@@ -165,12 +165,14 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
-            Debug.Log("Is the destinator");
-            // lauchn finish quest Dialog
+            DialogBubbleDisplayer.Instance.LaunchGoodDialog();
+
+            // launch finish quest Dialog
             questManager.FinishCurrentQuest();
         }
         else
         {
+            DialogBubbleDisplayer.Instance.LaunchBadDialog();
             Debug.Log("Not the destinator");
             //Launch nope dialog
         }
