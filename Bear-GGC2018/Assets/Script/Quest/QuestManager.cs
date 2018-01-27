@@ -6,6 +6,9 @@ public class QuestManager : Singleton<QuestManager>
 {
     public List<Quest> questList = new List<Quest>();
 
+    public TutoDisplayer nextObjectiveDisplayer;
+    public float timeBeforeDisplayNextObjectiveFeedback = 2.0f;
+
     private Quest _currentQuest = null;
     public Quest currentQuest
     {
@@ -57,11 +60,19 @@ public class QuestManager : Singleton<QuestManager>
 
     public void FinishCurrentQuest()
     {
+        StartCoroutine(DisplayNextObjectiveFeedback());
         LaunchQuest(_currentQuestIndex + 1);
     }
 
     public bool IsItTheDestinator(NonPlayerCharacter NPC)
     {
         return NPC.destinator == currentQuest.questDestinator;
+    }
+
+    IEnumerator DisplayNextObjectiveFeedback()
+    {
+        yield return new WaitForSeconds(timeBeforeDisplayNextObjectiveFeedback);
+        
+        nextObjectiveDisplayer.DisplayTuto();
     }
 }

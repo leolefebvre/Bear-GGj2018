@@ -170,7 +170,10 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
                 clueTutoDisplayer.HideTuto();
                 hasAlreadyDisplayClue = true;
             }
-
+            else
+            {
+                questManager.nextObjectiveDisplayer.HideTuto();
+            }
 
             currentClueDisplayer.DisplayClue();
             LockCharacter();
@@ -225,9 +228,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     IEnumerator DisplayTutoClue()
     {
-        Debug.Log("will wait to launch clue tuto. Waiting " + TimeBetweenTutos + " Seconds");
         yield return new WaitForSeconds(TimeBetweenTutos);
-        Debug.Log("Launching tuto !!!!");
         if (!hasAlreadyDisplayClue)
         {
             clueTutoDisplayer.DisplayTuto();
