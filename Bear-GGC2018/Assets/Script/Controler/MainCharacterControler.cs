@@ -7,6 +7,15 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [Header("Movements paramters")]
     public float speed = 10.0f;
 
+    [Header("TutoDisplayParameters")]
+    public TutoDisplayer moveTutoDisplayer;
+    public TutoDisplayer clueTutoDisplayer;
+    public float timeBeforeFirstTuto = 2.0f;
+    public float TimeBetweenTutos = 5.0f;
+
+    [SerializeField] private bool hasAlreadyMove = false;
+    [SerializeField] private bool hasAlreadyDisplayClue = false;
+
     [Header("private variable, don't touch it")]
     [SerializeField] private float _translation = 0f;
     [SerializeField] private float _strafe = 0f;
@@ -82,7 +91,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         // Lock the mouse on the character
         Cursor.lockState = CursorLockMode.Locked;
-	}
+
+        StartCoroutine(DisplayTutoMove());
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -113,7 +124,10 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             ManageInteraction();
         }
 
-        ManageMovement();
+        if(Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        {
+            ManageMovement();
+        }
     }
 
     void ManageMovement ()
@@ -121,6 +135,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(isCharacterLocked)
         {
             return;
+        }
+
+        if(!hasAlreadyMove)
+        {
+            HideMoveTuto();
         }
 
         _translation = Input.GetAxis("Vertical") * speed;
@@ -134,6 +153,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     void ManagelookingAtClue()
     {
+        if(!hasAlreadyMove)
+        {
+            return;
+        }
+
         if(isLookingAtClue)
         {
             currentClueDisplayer.HideClue();
@@ -141,6 +165,16 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
         else
         {
+            if(!hasAlreadyDisplayClue)
+            {
+                clueTutoDisplayer.HideTuto();
+                hasAlreadyDisplayClue = true;
+            }
+            else
+            {
+                questManager.nextObjectiveDisplayer.HideTuto();
+            }
+
             currentClueDisplayer.DisplayClue();
             LockCharacter();
         }
@@ -166,15 +200,38 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
             DialogBubbleDisplayer.Instance.LaunchGoodDialog();
-
             // launch finish quest Dialog
             questManager.FinishCurrentQuest();
         }
         else
         {
             DialogBubbleDisplayer.Instance.LaunchBadDialog();
-            Debug.Log("Not the destinator");
             //Launch nope dialog
+        }
+    }
+
+    IEnumerator DisplayTutoMove()
+    {
+        yield return new WaitForSeconds(timeBeforeFirstTuto);
+        if(!hasAlreadyMove)
+        {
+            moveTutoDisplayer.DisplayTuto();
+        }
+    }
+
+    void HideMoveTuto()
+    {
+        moveTutoDisplayer.HideTuto();
+        hasAlreadyMove = true;
+        StartCoroutine(DisplayTutoClue());
+    }
+
+    IEnumerator DisplayTutoClue()
+    {
+        yield return new WaitForSeconds(TimeBetweenTutos);
+        if (!hasAlreadyDisplayClue)
+        {
+            clueTutoDisplayer.DisplayTuto();
         }
     }
 
@@ -199,15 +256,6 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
         characterRigidbody.constraints = _defaultRigidbodyConstraint;
     }
-
-    void FixRotationBug()
-    {
-        if (transform.localRotation.x != 0f || transform.localRotation.z != 0f)
-        {
-            transform.localEulerAngles = new Vector3(0f, transform.localRotation.y, 0f);
-        }
-    }
-
 
     #region trigger methods
 
