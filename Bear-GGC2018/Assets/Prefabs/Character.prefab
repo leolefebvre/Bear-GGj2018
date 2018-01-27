@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 23998689400722806}
   - component: {fileID: 54885339298377874}
   - component: {fileID: 114522008650838658}
-  - component: {fileID: 65315268761433454}
+  - component: {fileID: 65748654398612498}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 65038820333350672}
   m_Layer: 8
   m_Name: TriggerCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783558806371034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4558909431206938}
@@ -215,23 +215,23 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783558806371034}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65315268761433454
+--- !u!65 &65748654398612498
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560969203339938}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1.6586227}
-  m_Center: {x: 0, y: 0, z: 0.32931137}
+  m_Size: {x: 1, y: 2, z: 1.1154251}
+  m_Center: {x: 0, y: 0, z: 0.057712555}
 --- !u!81 &81535221447294034
 AudioListener:
   m_ObjectHideFlags: 1
@@ -269,8 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensivity: 2
-  smoothing: 0.2
+  smoothing: 1
   yAxisClamp: {x: -60, y: 60}
+  debugText: {fileID: 0}
 --- !u!124 &124905837083799596
 Behaviour:
   m_ObjectHideFlags: 1
@@ -286,7 +287,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1560969203339938}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
