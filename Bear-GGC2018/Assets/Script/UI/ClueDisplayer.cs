@@ -5,39 +5,32 @@ using UnityEngine.UI;
 
 public class ClueDisplayer : Singleton<ClueDisplayer>
 {
-    private Image _displayedImage = null;
-
-    public Image displayedImage
+    public Image clueImage;
+    private Animator _animator = null;
+    public Animator animator
     {
         get
         {
-            if(_displayedImage == null)
+            if (_animator == null)
             {
-                _displayedImage = GetComponent<Image>();
+                _animator = GetComponent<Animator>();
             }
-            return _displayedImage;
+            return _animator;
         }
-    }
-
-    void Start()
-    {
-        HideClue();
     }
 
 	public void DisplayClue()
     {
-        Debug.Log("Displaying clue");
-        displayedImage.enabled = true;
+        animator.SetTrigger("DisplayClue");
     }
 
     public void HideClue()
     {
-        Debug.Log("Hidding clue");
-        displayedImage.enabled = false;
+        animator.SetTrigger("HideClue");
     }
 
     public void ChangeClueImage(Sprite newClueSprite)
     {
-        displayedImage.sprite = newClueSprite;
+        clueImage.sprite = newClueSprite;
     }
 }
