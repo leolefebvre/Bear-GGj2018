@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogStripDisplayer : Singleton<DialogStripDisplayer>
+public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
 {
     private Animator _animator = null;
     public Animator animator
     {
         get
         {
-            if(_animator == null)
+            if (_animator == null)
             {
                 _animator = GetComponent<Animator>();
             }
@@ -17,13 +17,13 @@ public class DialogStripDisplayer : Singleton<DialogStripDisplayer>
         }
     }
 
-    public void OpenDialogStrip()
+    public void LaunchGoodDialog()
     {
-        animator.SetTrigger("Open");
+        animator.SetTrigger("GoodAnswer");
     }
 
-    public void CloseDialogStrip()
+    public void LaunchBadDialog()
     {
-        animator.SetTrigger("Close");
+        animator.SetTrigger("BadAnswer");
     }
 }
