@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MouseLook : MonoBehaviour
     private Vector2 _smoothV;
 
     private MainCharacterControler _mainCharacterControler = null;
+
+    public Text debugText;
 
     public MainCharacterControler character
     {
@@ -51,7 +54,7 @@ public class MouseLook : MonoBehaviour
 
         // Update mouselook posistion
         _mouseLook += _smoothV;
-        _mouseLook.y = Mathf.Clamp(_mouseLook.y, yAxisClamp.x, yAxisClamp.y);
+        _mouseLook.y = Mathf.Clamp(_mouseLook.y % 360, yAxisClamp.x % 360, yAxisClamp.y % 360);
 
         transform.localRotation = Quaternion.AngleAxis(-_mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(_mouseLook.x, character.transform.up);

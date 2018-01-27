@@ -75,6 +75,16 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         ManageInput();
 
+       // FixRotationBug();
+    }
+
+    private void LateUpdate()
+    {
+        //FixRotationBug();
+        /*
+        if (GetComponent<Rigidbody>().angularVelocity == Vector3.zero)
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            */
     }
 
     void ManageInput ()
@@ -150,6 +160,13 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
     }
 
+    void FixRotationBug()
+    {
+        if (transform.localRotation.x != 0f || transform.localRotation.z != 0f)
+        {
+            transform.localEulerAngles = new Vector3(0f, transform.localRotation.y, 0f);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
