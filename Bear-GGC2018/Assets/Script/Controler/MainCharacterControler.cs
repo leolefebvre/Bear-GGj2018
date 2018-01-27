@@ -215,6 +215,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(other.tag == "NPC")
         {
             _currentNpcNear = other.GetComponent<NonPlayerCharacter>();
+            DialogStripDisplayer.Instance.OpenDialogStrip();
         }
     }
 
@@ -225,6 +226,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             if(_currentNpcNear == other.GetComponent<NonPlayerCharacter>())
             {
                 _currentNpcNear = null;
+                DialogStripDisplayer.Instance.CloseDialogStrip();
             }
         }
     }
