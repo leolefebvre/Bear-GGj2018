@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
 {
+    public Image bubbleImage;
+
     private Animator _animator = null;
     public Animator animator
     {
@@ -19,18 +22,18 @@ public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
 
     public void LaunchGoodDialog()
     {
+        UpdateBubbleColor(QuestManager.Instance.CurrentQuestColor);
         animator.SetTrigger("GoodAnswer");
     }
 
     public void LaunchBadDialog()
     {
+        UpdateBubbleColor(QuestManager.Instance.DefaultColor);
         animator.SetTrigger("BadAnswer");
     }
 
     public void LaunchOpenPackAnim()
     {
-        Debug.Log("Prout");
-
         PackOpener.Instance.OpenPack();
     }
 
@@ -47,5 +50,17 @@ public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
     public void PlaySoundTearPaper()
     {
         MainCharacterControler.Instance.PlayFeedbackSound(MainCharacterControler.Instance.tearPaperSound);
+    }
+
+    public void UpdateBubbleColor(Color newColor)
+    {
+        Debug.Log("change color");
+
+        bubbleImage.color = new Color(newColor.r, newColor.g, newColor.b, bubbleImage.color.a);
+    }
+
+    public void AllowDialog()
+    {
+        MainCharacterControler.Instance.canDialog = true;
     }
 }
