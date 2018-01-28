@@ -20,7 +20,6 @@ public class PackOpener : Singleton<PackOpener>
 
     public void OpenPack()
     {
-        Debug.Log("Oppening pack");
         animator.SetTrigger("OpenPack");
     }
 }

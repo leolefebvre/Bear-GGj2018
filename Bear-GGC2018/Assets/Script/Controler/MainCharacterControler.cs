@@ -36,6 +36,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [SerializeField] private bool _isLookingAtClue = false;
     [SerializeField] private bool _isTalking = false;
 
+    public bool canDialog = true;
+
+
     [SerializeField] private NonPlayerCharacter _currentNpcNear = null;
     
     private RigidbodyConstraints _defaultRigidbodyConstraint;
@@ -233,6 +236,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     void LaunchDialog()
     {
+        if(!canDialog)
+        {
+            return;
+        }
+
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
             //PlayFeedbackSound(positiveFeedbackSound);
@@ -246,6 +254,8 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             DialogBubbleDisplayer.Instance.LaunchBadDialog();
             //Launch nope dialog
         }
+
+        canDialog = false;
     }
 
     #endregion
