@@ -77,7 +77,7 @@ MonoBehaviour:
     questObject: {fileID: 21300000, guid: 2089a3bc548ae004ab63e9c7c6c865fb, type: 3}
     CharacterBubbleColor: {r: 0.055471454, g: 0.7086743, b: 0.83823526, a: 0}
     questDestinator: 6
-  - questClue: {fileID: 21300000, guid: 01cc9f6e59e91754bbc03faf0784d3a3, type: 3}
+  - questClue: {fileID: 21300000, guid: 738f95bb629794d4b8accdc16ab3b1ad, type: 3}
     questObject: {fileID: 0}
     CharacterBubbleColor: {r: 0, g: 0, b: 0, a: 0}
     questDestinator: 7
