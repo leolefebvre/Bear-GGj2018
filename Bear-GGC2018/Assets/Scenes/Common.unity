@@ -631,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527121837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -898,15 +898,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questList:
-  - questClue: {fileID: 21300000, guid: 71c842404f6000940be0b59ed7b18103, type: 3}
+  - questClue: {fileID: 21300000, guid: aabda559dc46e2e4fa63a10d799896b4, type: 3}
     questDestinator: 1
-  - questClue: {fileID: 21300000, guid: a56e08e095b34114db3319bde991b026, type: 3}
+  - questClue: {fileID: 21300000, guid: af2f373fb00a1194ca42cf293c24ce4f, type: 3}
     questDestinator: 2
-  - questClue: {fileID: 21300000, guid: 47ae0e8d35ddb9247a18583b8badd5ad, type: 3}
+  - questClue: {fileID: 21300000, guid: 674aa2646213fef4a915c935ca7bb470, type: 3}
     questDestinator: 3
+  - questClue: {fileID: 21300000, guid: 4a24967d72f06304da6d1eed0724f95e, type: 3}
+    questDestinator: 4
+  - questClue: {fileID: 21300000, guid: 2e84360c11d1e9748980281c827f3f9e, type: 3}
+    questDestinator: 5
+  - questClue: {fileID: 21300000, guid: 0813e7d3ee27bb1478a250a416fef830, type: 3}
+    questDestinator: 6
   - questClue: {fileID: 21300000, guid: 01cc9f6e59e91754bbc03faf0784d3a3, type: 3}
     questDestinator: 7
-  nextObjectiveDisplayer: {fileID: 0}
+  nextObjectiveDisplayer: {fileID: 1824748922}
+  timeBeforeDisplayNextObjectiveFeedback: 5
 --- !u!1 &1002570719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,15 +1434,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 515.4
+      value: 519.11
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.25
+      value: 9.52
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 149.15
+      value: 109.48
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1443,7 +1450,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.46511146
+      value: 0.0009910731
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1451,7 +1458,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.8852521
+      value: 0.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
       propertyPath: m_RootOrder
@@ -1467,6 +1474,10 @@ Prefab:
       propertyPath: clueTutoDisplayer
       value: 
       objectReference: {fileID: 1179760312}
+    - target: {fileID: 4558909431206938, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.11400001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
   m_IsPrefabParent: 0
