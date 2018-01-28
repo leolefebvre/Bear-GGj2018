@@ -428,15 +428,15 @@ RectTransform:
   m_GameObject: {fileID: 354595987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 1658537968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 0}
+  m_SizeDelta: {x: 960, y: 720}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &354595989
 MonoBehaviour:
@@ -457,7 +457,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: efea010c2c24cc742b14128b571299b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aabda559dc46e2e4fa63a10d799896b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1786,16 +1786,6 @@ Prefab:
       propertyPath: clueTutoDisplayer
       value: 
       objectReference: {fileID: 1179760312}
-    - target: {fileID: 82809465449093502, guid: 4fb56eba5013a6a43896f80bae94f5f2,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114522008650838658, guid: 4fb56eba5013a6a43896f80bae94f5f2,
-        type: 2}
-      propertyPath: ripPaperSound
-      value: 
-      objectReference: {fileID: 8300000, guid: a167c2b20c8d38040ba3f5177b3f5be5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
   m_IsPrefabParent: 0
