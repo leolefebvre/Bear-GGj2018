@@ -16,6 +16,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [Header("Sounds data")]
     public AudioClip positiveFeedbackSound;
     public AudioClip negativeFeedbackSound;
+    public AudioClip openClueSound;
+    public AudioClip closeClueSound;
+
     public AudioClip[] footstepsSounds;
 
     public AudioSource footstepAudioSource;
@@ -191,6 +194,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(isLookingAtClue)
         {
             currentClueDisplayer.HideClue();
+            PlayFeedbackSound(closeClueSound);
             UnlockCharacter();
         }
         else
@@ -206,6 +210,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             }
 
             currentClueDisplayer.DisplayClue();
+            PlayFeedbackSound(openClueSound);
             LockCharacter();
         }
 
