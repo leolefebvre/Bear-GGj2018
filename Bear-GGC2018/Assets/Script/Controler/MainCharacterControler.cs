@@ -13,6 +13,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     public float timeBeforeFirstTuto = 2.0f;
     public float TimeBetweenTutos = 5.0f;
 
+    [Header("Sounds data")]
+    public AudioClip positiveFeedbackSound;
+    public AudioClip negativeFeedbackSound;
+
+
     [SerializeField] private bool hasAlreadyMove = false;
     [SerializeField] private bool hasAlreadyDisplayClue = false;
 
@@ -21,12 +26,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [SerializeField] private float _strafe = 0f;
     [SerializeField] private bool _isLookingAtClue = false;
     [SerializeField] private bool _isTalking = false;
-    [SerializeField] private ClueDisplayer _clueDisplayer = null;
+
     [SerializeField] private NonPlayerCharacter _currentNpcNear = null;
-
-    private QuestManager _questManager = null;
-    private Rigidbody _characterRigidody;
-
+    
     private RigidbodyConstraints _defaultRigidbodyConstraint;
 
     #region properties
@@ -50,6 +52,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         get { return _currentNpcNear != null; }
     }
 
+    #endregion
+
+    #region components & links
+
+    private ClueDisplayer _clueDisplayer = null;
     public ClueDisplayer currentClueDisplayer
     {
         get
@@ -61,26 +68,43 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             return _clueDisplayer;
         }
     }
+
+    private QuestManager _questManager = null;
     public QuestManager questManager
     {
         get
         {
-            if(_questManager == null)
+            if (_questManager == null)
             {
                 _questManager = QuestManager.Instance;
             }
             return _questManager;
         }
     }
+
+    private Rigidbody _characterRigidody;
     public Rigidbody characterRigidbody
     {
         get
         {
-            if(_characterRigidody == null)
+            if (_characterRigidody == null)
             {
                 _characterRigidody = GetComponent<Rigidbody>();
             }
             return _characterRigidody;
+        }
+    }
+
+    private AudioSource _charcaterAudioSource;
+    public AudioSource characterAudioSource
+    {
+        get
+        {
+            if(_charcaterAudioSource == null)
+            {
+                _charcaterAudioSource = GetComponent<AudioSource>();
+            }
+            return _charcaterAudioSource;
         }
     }
 
@@ -199,12 +223,14 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
+            PlayFeedbackSound(positiveFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchGoodDialog();
             // launch finish quest Dialog
             questManager.FinishCurrentQuest();
         }
         else
         {
+            PlayFeedbackSound(negativeFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchBadDialog();
             //Launch nope dialog
         }
@@ -255,6 +281,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
 
         characterRigidbody.constraints = _defaultRigidbodyConstraint;
+    }
+
+    void PlayFeedbackSound(AudioClip soundToPlay)
+    {
+        characterAudioSource.PlayOneShot(soundToPlay);
     }
 
     #region trigger methods
