@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560969203339938}
   m_LocalRotation: {x: -0, y: 0.0009910731, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 519.11, y: 9.52, z: 109.48}
+  m_LocalPosition: {x: 697.1, y: 12.2, z: 199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4480212021378484}
@@ -232,7 +232,7 @@ Skybox:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026876708821626}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: e980bc7fbb00dc34b86b95ac842d1920, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: d9dca9ae1786c394f9e79c637aa9a7bf, type: 2}
 --- !u!54 &54885339298377874
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -426,7 +426,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -459,6 +459,9 @@ MonoBehaviour:
     type: 3}
   negativeFeedbackSound: {fileID: 8300000, guid: 087d80cc70b17514db66679976e0e387,
     type: 3}
+  openClueSound: {fileID: 8300000, guid: 883f5fa87bab0f549813b6d975d2d34b, type: 3}
+  closeClueSound: {fileID: 8300000, guid: 8ae4c6fddccd96c429a57cbe123e9880, type: 3}
+  tearPaperSound: {fileID: 8300000, guid: a167c2b20c8d38040ba3f5177b3f5be5, type: 3}
   footstepsSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}

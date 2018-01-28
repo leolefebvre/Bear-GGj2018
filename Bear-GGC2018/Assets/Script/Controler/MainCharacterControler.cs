@@ -16,6 +16,10 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [Header("Sounds data")]
     public AudioClip positiveFeedbackSound;
     public AudioClip negativeFeedbackSound;
+    public AudioClip openClueSound;
+    public AudioClip closeClueSound;
+    public AudioClip tearPaperSound;
+
     public AudioClip[] footstepsSounds;
 
     public AudioSource footstepAudioSource;
@@ -191,6 +195,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         if(isLookingAtClue)
         {
             currentClueDisplayer.HideClue();
+            PlayFeedbackSound(closeClueSound);
             UnlockCharacter();
         }
         else
@@ -206,6 +211,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             }
 
             currentClueDisplayer.DisplayClue();
+            PlayFeedbackSound(openClueSound);
             LockCharacter();
         }
 
@@ -229,14 +235,14 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
-            PlayFeedbackSound(positiveFeedbackSound);
+            //PlayFeedbackSound(positiveFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchGoodDialog();
             // launch finish quest Dialog
             questManager.FinishCurrentQuest();
         }
         else
         {
-            PlayFeedbackSound(negativeFeedbackSound);
+            //PlayFeedbackSound(negativeFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchBadDialog();
             //Launch nope dialog
         }
@@ -301,7 +307,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     #region sound
 
-    void PlayFeedbackSound(AudioClip soundToPlay)
+    public void PlayFeedbackSound(AudioClip soundToPlay)
     {
         characterAudioSource.PlayOneShot(soundToPlay);
     }
@@ -341,7 +347,6 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I collide with " + other.name);
         if(other.tag == "NPC")
         {
             _currentNpcNear = other.GetComponent<NonPlayerCharacter>();
