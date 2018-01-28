@@ -241,9 +241,12 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             return;
         }
 
+        Debug.Log("Launch dialog");
+
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
             //PlayFeedbackSound(positiveFeedbackSound);
+            
             DialogBubbleDisplayer.Instance.LaunchGoodDialog();
             // launch finish quest Dialog
             questManager.FinishCurrentQuest();
