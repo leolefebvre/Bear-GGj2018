@@ -8,16 +8,51 @@ ModelImporter:
     100000: Char_01_fox
     100002: Char_body
     100004: //RootNode
+    100006: Fenetre
+    100008: Phare
+    100010: Porte
+    100012: Poteau
+    100014: Toit
+    100016: Wall_default
     400000: Char_01_fox
     400002: Char_body
     400004: //RootNode
+    400006: Fenetre
+    400008: Phare
+    400010: Porte
+    400012: Poteau
+    400014: Toit
+    400016: Wall_default
     2100000: No Name
+    2100002: 'Material #57'
+    2100004: 'Material #60'
+    2100006: 'Material #58'
+    2100008: 'Material #59'
+    2100010: 'Material #61'
     2300000: Char_01_fox
     2300002: Char_body
+    2300004: Fenetre
+    2300006: Phare
+    2300008: Porte
+    2300010: Poteau
+    2300012: Toit
+    2300014: Wall_default
     3300000: Char_01_fox
     3300002: Char_body
+    3300004: Fenetre
+    3300006: Phare
+    3300008: Porte
+    3300010: Poteau
+    3300012: Toit
+    3300014: Wall_default
     4300000: Char_body
     4300002: Char_01_fox
+    4300004: Phare
+    4300006: Wall_default
+    4300008: Porte
+    4300010: Fenetre
+    4300012: Poteau
+    4300014: Toit
     9500000: //RootNode
   externalObjects: {}
   materials:
