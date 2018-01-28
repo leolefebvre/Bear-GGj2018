@@ -133,6 +133,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     // Use this for initialization
     void Start ()
     {
+        Cursor.visible = false;
         // Lock the mouse on the character
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -171,8 +172,8 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         {
             return;
         }
-
-        if(!hasAlreadyMove)
+        
+        if (!hasAlreadyMove)
         {
             HideMoveTuto();
         }
@@ -240,9 +241,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         {
             return;
         }
-
-        Debug.Log("Launch dialog");
-
+        
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
             //PlayFeedbackSound(positiveFeedbackSound);
@@ -276,6 +275,8 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     void HideMoveTuto()
     {
+        Debug.Log("hiding tuto");
+
         moveTutoDisplayer.HideTuto();
         hasAlreadyMove = true;
         StartCoroutine(DisplayTutoClue());

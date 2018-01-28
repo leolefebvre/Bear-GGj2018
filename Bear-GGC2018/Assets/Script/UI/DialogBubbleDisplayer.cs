@@ -55,9 +55,8 @@ public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
 
     public void UpdateBubbleColor(Color newColor)
     {
-        Debug.Log("change color");
 
-        bubbleImage.color = new Color(newColor.r, newColor.g, newColor.b, bubbleImage.color.a);
+        //bubbleImage.color = new Color(newColor.r, newColor.g, newColor.b, bubbleImage.color.a);
     }
 
     public void UpdateQuestItemSpire()
