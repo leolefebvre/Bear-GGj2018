@@ -16,11 +16,16 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [Header("Sounds data")]
     public AudioClip positiveFeedbackSound;
     public AudioClip negativeFeedbackSound;
+    public AudioClip[] footstepsSounds;
 
+    public AudioSource footstepAudioSource;
 
-    [SerializeField] private bool hasAlreadyMove = false;
-    [SerializeField] private bool hasAlreadyDisplayClue = false;
-
+    [Header("footsteps cycle parameters")]
+    public float footStepLenght = 1.0f;
+    public float stepInterval = 2.0f;
+    [SerializeField]private float _stepCycle = 0f;
+    [SerializeField] private float _nextStepCycle = 0f;
+    
     [Header("private variable, don't touch it")]
     [SerializeField] private float _translation = 0f;
     [SerializeField] private float _strafe = 0f;
@@ -30,6 +35,9 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     [SerializeField] private NonPlayerCharacter _currentNpcNear = null;
     
     private RigidbodyConstraints _defaultRigidbodyConstraint;
+
+    private bool hasAlreadyMove = false;
+    private bool hasAlreadyDisplayClue = false;
 
     #region properties
 
@@ -50,6 +58,11 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     public bool canInteractWithNPC
     {
         get { return _currentNpcNear != null; }
+    }
+
+    public bool isCharacterMoving
+    {
+        get { return Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0; }
     }
 
     #endregion
@@ -119,22 +132,13 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         StartCoroutine(DisplayTutoMove());
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         ManageInput();
-
-       // FixRotationBug();
+        
     }
 
-    private void LateUpdate()
-    {
-        //FixRotationBug();
-        /*
-        if (GetComponent<Rigidbody>().angularVelocity == Vector3.zero)
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            */
-    }
+    #region Input & controls managements
 
     void ManageInput ()
     {
@@ -148,7 +152,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
             ManageInteraction();
         }
 
-        if(Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+        if(isCharacterMoving)
         {
             ManageMovement();
         }
@@ -173,6 +177,8 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         _strafe *= Time.deltaTime;
 
         transform.Translate(_strafe, 0f, _translation);
+
+        ProgressStepCycle();
     }
 
     void ManagelookingAtClue()
@@ -236,6 +242,10 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
     }
 
+    #endregion
+
+    #region Tuto related shit
+
     IEnumerator DisplayTutoMove()
     {
         yield return new WaitForSeconds(timeBeforeFirstTuto);
@@ -261,6 +271,10 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         }
     }
 
+    #endregion
+
+    #region lock & unlock character
+
     void LockCharacter()
     {
         if(isCharacterLocked) // if character is already locked
@@ -283,10 +297,45 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
         characterRigidbody.constraints = _defaultRigidbodyConstraint;
     }
 
+    #endregion
+
+    #region sound
+
     void PlayFeedbackSound(AudioClip soundToPlay)
     {
         characterAudioSource.PlayOneShot(soundToPlay);
     }
+
+    private void ProgressStepCycle()
+    {
+        if (isCharacterMoving)
+        {
+            _stepCycle += footStepLenght * Time.deltaTime;
+        }
+
+        if (!(_stepCycle > _nextStepCycle))
+        {
+            return;
+        }
+
+        _nextStepCycle = _stepCycle + stepInterval;
+
+        PlayFootStepAudio();
+    }
+
+    private void PlayFootStepAudio()
+    {
+        // pick & play a random footstep sound from the array,
+        // excluding sound at index 0
+        int n = Random.Range(1, footstepsSounds.Length);
+        footstepAudioSource.clip = footstepsSounds[n];
+        footstepAudioSource.PlayOneShot(footstepAudioSource.clip);
+        // move picked sound to index 0 so it's not picked next time
+        footstepsSounds[n] = footstepsSounds[0];
+        footstepsSounds[0] = footstepAudioSource.clip;
+    }
+
+    #endregion
 
     #region trigger methods
 
