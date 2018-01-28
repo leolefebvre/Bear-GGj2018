@@ -426,7 +426,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -461,6 +461,7 @@ MonoBehaviour:
     type: 3}
   openClueSound: {fileID: 8300000, guid: 883f5fa87bab0f549813b6d975d2d34b, type: 3}
   closeClueSound: {fileID: 8300000, guid: 8ae4c6fddccd96c429a57cbe123e9880, type: 3}
+  tearPaperSound: {fileID: 8300000, guid: a167c2b20c8d38040ba3f5177b3f5be5, type: 3}
   footstepsSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}

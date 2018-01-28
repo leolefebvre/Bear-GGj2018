@@ -1786,6 +1786,16 @@ Prefab:
       propertyPath: clueTutoDisplayer
       value: 
       objectReference: {fileID: 1179760312}
+    - target: {fileID: 82809465449093502, guid: 4fb56eba5013a6a43896f80bae94f5f2,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114522008650838658, guid: 4fb56eba5013a6a43896f80bae94f5f2,
+        type: 2}
+      propertyPath: ripPaperSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a167c2b20c8d38040ba3f5177b3f5be5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fb56eba5013a6a43896f80bae94f5f2, type: 2}
   m_IsPrefabParent: 0

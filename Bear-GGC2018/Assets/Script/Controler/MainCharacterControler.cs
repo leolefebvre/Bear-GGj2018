@@ -18,6 +18,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     public AudioClip negativeFeedbackSound;
     public AudioClip openClueSound;
     public AudioClip closeClueSound;
+    public AudioClip tearPaperSound;
 
     public AudioClip[] footstepsSounds;
 
@@ -234,14 +235,14 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
     {
         if(questManager.IsItTheDestinator(_currentNpcNear))
         {
-            PlayFeedbackSound(positiveFeedbackSound);
+            //PlayFeedbackSound(positiveFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchGoodDialog();
             // launch finish quest Dialog
             questManager.FinishCurrentQuest();
         }
         else
         {
-            PlayFeedbackSound(negativeFeedbackSound);
+            //PlayFeedbackSound(negativeFeedbackSound);
             DialogBubbleDisplayer.Instance.LaunchBadDialog();
             //Launch nope dialog
         }
@@ -306,7 +307,7 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     #region sound
 
-    void PlayFeedbackSound(AudioClip soundToPlay)
+    public void PlayFeedbackSound(AudioClip soundToPlay)
     {
         characterAudioSource.PlayOneShot(soundToPlay);
     }
