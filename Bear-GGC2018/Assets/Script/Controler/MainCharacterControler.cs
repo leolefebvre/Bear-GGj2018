@@ -341,7 +341,6 @@ public class MainCharacterControler : Singleton<MainCharacterControler>
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I collide with " + other.name);
         if(other.tag == "NPC")
         {
             _currentNpcNear = other.GetComponent<NonPlayerCharacter>();

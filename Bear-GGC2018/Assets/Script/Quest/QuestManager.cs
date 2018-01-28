@@ -43,7 +43,6 @@ public class QuestManager : Singleton<QuestManager>
 
     private void LaunchQuest (int questIndex)
     {
-        Debug.Log(questIndex);
         if(questIndex > questList.Count)
         {
             Debug.Log("You try to reach a quest index that does not exists, it shouldn't happens");
@@ -54,8 +53,6 @@ public class QuestManager : Singleton<QuestManager>
         _currentQuestIndex = questIndex;
 
         clueDisplayer.ChangeClueImage(currentQuest.questClue);
-
-        Debug.Log("Launch quest " + _currentQuestIndex);
     }
 
     public void FinishCurrentQuest()

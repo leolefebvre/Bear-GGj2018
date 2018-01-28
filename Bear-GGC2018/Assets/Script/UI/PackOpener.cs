@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
+public class PackOpener : Singleton<PackOpener>
 {
+
     private Animator _animator = null;
     public Animator animator
     {
@@ -17,20 +18,9 @@ public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
         }
     }
 
-    public void LaunchGoodDialog()
+    public void OpenPack()
     {
-        animator.SetTrigger("GoodAnswer");
-    }
-
-    public void LaunchBadDialog()
-    {
-        animator.SetTrigger("BadAnswer");
-    }
-
-    public void LaunchOpenPackAnim()
-    {
-        Debug.Log("Prout");
-
-        PackOpener.Instance.OpenPack();
+        Debug.Log("Oppening pack");
+        animator.SetTrigger("OpenPack");
     }
 }
