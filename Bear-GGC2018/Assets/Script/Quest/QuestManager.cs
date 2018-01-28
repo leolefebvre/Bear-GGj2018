@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestManager : Singleton<QuestManager>
 {
+    public Color DefaultColor = Color.white;
     public List<Quest> questList = new List<Quest>();
 
     public TutoDisplayer nextObjectiveDisplayer;
@@ -14,6 +15,11 @@ public class QuestManager : Singleton<QuestManager>
     {
         get { return _currentQuest; }
         private set { _currentQuest = value; }
+    }
+
+    public Color CurrentQuestColor
+    {
+        get { return currentQuest.CharacterBubbleColor; }
     }
 
     private int _currentQuestIndex = 0;
