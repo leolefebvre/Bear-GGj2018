@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
 {
     public Image bubbleImage;
+    public Image itemImage;
 
     private Animator _animator = null;
     public Animator animator
@@ -57,6 +58,11 @@ public class DialogBubbleDisplayer : Singleton<DialogBubbleDisplayer>
         Debug.Log("change color");
 
         bubbleImage.color = new Color(newColor.r, newColor.g, newColor.b, bubbleImage.color.a);
+    }
+
+    public void UpdateQuestItemSpire()
+    {
+        itemImage.sprite = QuestManager.Instance.currentQuest.questObject;
     }
 
     public void AllowDialog()

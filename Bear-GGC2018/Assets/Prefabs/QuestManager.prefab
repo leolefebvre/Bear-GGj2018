@@ -54,27 +54,27 @@ MonoBehaviour:
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   questList:
   - questClue: {fileID: 21300000, guid: aabda559dc46e2e4fa63a10d799896b4, type: 3}
-    questObject: {fileID: 21300000, guid: 5a60a794105ff22429d06ad9d29d959f, type: 3}
+    questObject: {fileID: 21300000, guid: 9c53922609013ff4083b7376e0b324f4, type: 3}
     CharacterBubbleColor: {r: 1, g: 0.76551723, b: 0, a: 0}
     questDestinator: 1
   - questClue: {fileID: 21300000, guid: af2f373fb00a1194ca42cf293c24ce4f, type: 3}
-    questObject: {fileID: 21300000, guid: a56e08e095b34114db3319bde991b026, type: 3}
+    questObject: {fileID: 21300000, guid: a4eef4da7f97b6b4eac3d000898530cc, type: 3}
     CharacterBubbleColor: {r: 0, g: 0.60294116, b: 0.22870183, a: 0}
     questDestinator: 2
   - questClue: {fileID: 21300000, guid: 7127c3e6eb034b94ab49b70fe96d4f09, type: 3}
-    questObject: {fileID: 21300000, guid: 71c842404f6000940be0b59ed7b18103, type: 3}
+    questObject: {fileID: 21300000, guid: f2a3dc5f1e5a1a242bd02fc0b92c3bd9, type: 3}
     CharacterBubbleColor: {r: 0.62003195, g: 0.58704585, b: 0.6544118, a: 0}
     questDestinator: 3
   - questClue: {fileID: 21300000, guid: 2e84360c11d1e9748980281c827f3f9e, type: 3}
-    questObject: {fileID: 21300000, guid: 47ae0e8d35ddb9247a18583b8badd5ad, type: 3}
+    questObject: {fileID: 21300000, guid: e0412cb4140a46241b11b71788771f54, type: 3}
     CharacterBubbleColor: {r: 0.5595335, g: 0.25735295, b: 1, a: 0}
     questDestinator: 4
   - questClue: {fileID: 21300000, guid: 4a24967d72f06304da6d1eed0724f95e, type: 3}
-    questObject: {fileID: 21300000, guid: efea010c2c24cc742b14128b571299b3, type: 3}
+    questObject: {fileID: 21300000, guid: ccbf9ab20f2ded248af180172c778ff0, type: 3}
     CharacterBubbleColor: {r: 0.74264705, g: 0.02184258, b: 0.2541018, a: 0}
     questDestinator: 5
   - questClue: {fileID: 21300000, guid: 0813e7d3ee27bb1478a250a416fef830, type: 3}
-    questObject: {fileID: 21300000, guid: d1a3e9b16aa3ef749b187cf2a8b9ebed, type: 3}
+    questObject: {fileID: 21300000, guid: 2089a3bc548ae004ab63e9c7c6c865fb, type: 3}
     CharacterBubbleColor: {r: 0.055471454, g: 0.7086743, b: 0.83823526, a: 0}
     questDestinator: 6
   - questClue: {fileID: 21300000, guid: 01cc9f6e59e91754bbc03faf0784d3a3, type: 3}
